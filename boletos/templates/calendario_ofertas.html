@@ -1,0 +1,24 @@
+<!-- boletos/templates/calendario_viajes.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario de Viajes</title>
+</head>
+<body>
+
+  <h1>Calendario de Viajes</h1>
+
+  {% for viaje in viajes %}
+    <div>
+      <h3>{{ viaje.origen }} a {{ viaje.destino }}</h3>
+      <p>Fecha de Salida: {{ viaje.fecha_salida|date:'Y-m-d H:i' }}</p>
+      <p>Cantidad de Pasajeros Disponibles: {{ viaje.cantidad_pasajeros_disponibles }}</p>
+      <a href="{% url 'venta_pasajes' viaje.id %}"><button>Ver Detalles del Viaje</button></a>
+    </div>
+  {% endfor %}
+
+</body>
+</html>

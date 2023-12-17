@@ -1,0 +1,33 @@
+<!-- venta_pasajes.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Pasajes</title>
+</head>
+<body>
+
+  <h1>Venta de Pasajes</h1>
+
+  <p>Detalles del Viaje:</p>
+  <p>Origen: {{ viaje.origen }}</p>
+  <p>Destino: {{ viaje.destino }}</p>
+  <p>Fecha: {{ viaje.fecha }}</p>
+  <p>Pasajeros Disponibles: {{ viaje.cantidad_de_pasajeros_disponibles }}</p>
+
+  {% if mensaje_error %}
+    <p style="color: red;">{{ mensaje_error }}</p>
+  {% endif %}
+
+  <form method="post" action="{% url 'venta_pasajes' viaje.id %}">
+    {% csrf_token %}
+    <label for="cantidad_pasajeros">Cantidad de Pasajeros:</label>
+    <input type="number" name="cantidad_pasajeros" min=1 max="{{ viaje.cantidad_de_pasajeros_disponibles }}" required>
+    <button type="submit">Comprar Pasajes</button>
+    <a href="{% url 'calendario_ofertas'%}"><button type="button">Volver</button></a>
+  </form>
+
+</body>
+</html>

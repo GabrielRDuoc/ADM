@@ -1,0 +1,24 @@
+<!-- boletos/templates/confirmacion_venta.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Venta</title>
+</head>
+<body>
+
+  <h1>Confirmación de Venta</h1>
+
+  <p>Detalles del Pasaje:</p>
+  <p>ID del Pasaje: {{ ticket.id }}</p>
+  <p>Viaje: {{ ticket.viaje.origen }} - {{ ticket.viaje.destino }}</p>
+  <p>Cantidad de Pasajeros: {{ ticket.cantidad_de_pasajeros }}</p>
+  <!-- Otros detalles del pasaje -->
+  <button onclick="window.print()">Imprimir pasaje</button>
+  <a href="{% url 'calendario_ofertas'%}" ><button>Otra Compra</button></a>
+
+
+</body>
+</html>

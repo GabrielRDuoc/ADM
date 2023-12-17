@@ -1,0 +1,38 @@
+<!-- boletos/templates/login.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+
+    <h2>Iniciar Sesión</h2>
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="username">Usuario:</label>
+        <input type="text" name="username" required><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" required><br>
+        <h2>Verifica tu identidad</h2>
+        <label for="security_question">Pregunta de Seguridad:</label>
+        <select name="security_question" required>
+            <option value="" disabled selected>Selecciona una pregunta</option>
+            <option value="nacimiento">Lugar de nacimiento</option>
+            <option value="cumple_madre">Cumpleaños de mi madre</option>
+            <option value="mascota">Nombre de mi mascota</option>
+            <option value="colegio">Colegio en que estudié</option>
+        </select><br>
+
+        <label for="security_answer">Respuesta de Seguridad:</label>
+        <input type="text" name="security_answer" required><br>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <p>¿No tienes cuenta?<a href="{% url 'registro' %}">Registrase</a></p> 
+</body>
+</html>
