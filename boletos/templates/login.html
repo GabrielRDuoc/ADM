@@ -11,10 +11,10 @@
     <title>Iniciar Sesión</title>
 </head>
 <body>
-
+<div style="padding-left: 25px";>
     <h2>Iniciar Sesión</h2>
 
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'login' %}" ">
         {% csrf_token %}
         <label for="username">Usuario:</label>
         <input type="text" name="username" required><br>

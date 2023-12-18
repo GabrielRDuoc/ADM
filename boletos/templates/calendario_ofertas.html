@@ -15,11 +15,11 @@
   <h1>Calendario de Viajes</h1>
 
   {% for viaje in viajes %}
-    <div>
+    <div style="padding-top: 12px;">
       <h3>{{ viaje.origen }} a {{ viaje.destino }}</h3>
       <p>Fecha de Salida: {{ viaje.fecha | date:'d/m/y' }}</p>
       <p>Cantidad de Pasajeros Disponibles: {{ viaje.cantidad_de_pasajeros_disponibles }}</p>
-      <a href="{% url 'venta_pasajes' viaje.id %}"><button>Ver Detalles del Viaje</button></a>
+      <a href="{% url 'venta_pasajes' viaje.id %}" style="padding-bottom: 12px;"><button>Ver Detalles del Viaje</button></a>
     </div>
   {% endfor %}
 </section>
