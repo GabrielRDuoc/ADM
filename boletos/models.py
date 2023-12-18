@@ -1,4 +1,4 @@
-# boletos/models.py
+
 
 from django.db import models
 
@@ -11,7 +11,7 @@ class Viaje(models.Model):
 class Ticket(models.Model):
     viaje = models.ForeignKey(Viaje, on_delete=models.CASCADE)
     cantidad_de_pasajeros = models.IntegerField()
-    # Otros campos relevantes para el ticket
+
 class Oferta (models.Model):
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()

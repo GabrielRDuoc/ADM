@@ -19,7 +19,6 @@ from django.urls import path, include
 from boletos.views import CalendarioOfertasView
 
 urlpatterns = [
-    #path('', CalendarioOfertasView.as_view(), name='calendario_ofertas'),
     path('admin/', admin.site.urls),
     path('venta_pasajes/', include('boletos.urls')),
     path('', include('boletos.urls')),

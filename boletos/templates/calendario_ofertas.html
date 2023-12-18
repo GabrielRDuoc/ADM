@@ -1,4 +1,4 @@
-<!-- boletos/templates/calendario_viajes.html -->
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -6,19 +6,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendario de Viajes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous">
 </head>
 <body>
-
+  <section>
   <h1>Calendario de Viajes</h1>
 
   {% for viaje in viajes %}
     <div>
       <h3>{{ viaje.origen }} a {{ viaje.destino }}</h3>
-      <p>Fecha de Salida: {{ viaje.fecha_salida|date:'Y-m-d H:i' }}</p>
-      <p>Cantidad de Pasajeros Disponibles: {{ viaje.cantidad_pasajeros_disponibles }}</p>
+      <p>Fecha de Salida: {{ viaje.fecha | date:'d/m/y' }}</p>
+      <p>Cantidad de Pasajeros Disponibles: {{ viaje.cantidad_de_pasajeros_disponibles }}</p>
       <a href="{% url 'venta_pasajes' viaje.id %}"><button>Ver Detalles del Viaje</button></a>
     </div>
   {% endfor %}
-
+</section>
 </body>
 </html>
